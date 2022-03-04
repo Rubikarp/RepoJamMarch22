@@ -1,21 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] Vector2 MoveValue;
     public void Movement(InputAction.CallbackContext context)
     {
-        var value = context.ReadValue<Vector2>();
+        MoveValue = context.ReadValue<Vector2>();
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
