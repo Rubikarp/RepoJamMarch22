@@ -43,7 +43,7 @@ public class Hitable : MonoBehaviour
     public void Hit(Vector2 dir, float dist)
     {
         if (invicibility) return;
-
+        dir.Normalize();
         life.GetHit();
         body.AddForce(dir * dist * 100 * body.mass, ForceMode2D.Force);
         TempInvici(0.2f);

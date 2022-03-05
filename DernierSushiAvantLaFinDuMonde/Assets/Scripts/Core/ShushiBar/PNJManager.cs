@@ -14,7 +14,7 @@ public class PNJManager : MonoBehaviour
     {
         for (int i = 0; i < spawnPoints.Count; i++)
         {
-            var _pnjGO = Instantiate(pnj, spawnPoints[i].position, Quaternion.identity);
+            var _pnjGO = Instantiate(pnj, spawnPoints[i].position, Quaternion.identity, transform);
             _pnjGO.GetComponent<PNJ>().Init(this, Random.Range(minWaitingTime, maxWaitingTime),  spawnPoints[i].position);
             pnjs.Add(_pnjGO.GetComponent<PNJ>());
         }
