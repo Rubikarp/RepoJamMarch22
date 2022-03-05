@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -21,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float strenght = 5f;
     [SerializeField] float coolDown = 0.2f;
     [SerializeField] bool canAttack = true;
+    public UnityEvent onAttack;
     public bool CanAttack
     {
         get { return canAttack; }
@@ -41,6 +43,7 @@ public class PlayerAttack : MonoBehaviour
         {
             CanAttack = false;
             Attack(mouv.lastDir);
+            onAttack?.Invoke();
         }
     }
 
