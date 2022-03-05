@@ -11,7 +11,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] string foodTag;
     public void RecupItem()
     {
-        if(inventory.Count >= maxSized) return;
+        if(inventory.Count >= maxSized) 
+            return;
 
         Collider2D[] collHit = Physics2D.OverlapCircleAll(transform.position, 3f);
         foreach (Collider2D coll in collHit)
@@ -27,6 +28,9 @@ public class PlayerInventory : MonoBehaviour
 
     public void DropItem()
     {
+        if (inventory.Count <= 0) 
+            return;
+
         inventory.Remove(inventory.Last());
     }
 }
