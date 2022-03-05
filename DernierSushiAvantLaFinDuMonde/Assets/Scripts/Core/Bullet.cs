@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
             Destruction();
         if(!target)
         {
-           var collider = Physics2D.OverlapCircle(transform.position, 1f, mask);
+           var collider = Physics2D.OverlapCircle(transform.position, 2f, mask);
             if (collider)
             {
                 if (!collider.GetComponent<Ennemy>().canBeTargeted)

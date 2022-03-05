@@ -30,11 +30,24 @@ public class Ennemy : MonoBehaviour
         index = _index;
         sushiPos = _sushiPos;
     }
+    /// <summary>
+    /// death normal, will not drop item
+    /// </summary>
     internal virtual void Death()
     {
         //anim of Death
+        poolManager.OnDeath(index);
+        Destroy(gameObject);
+    }
+    /// <summary>
+    /// need to be call when the player attacke an ennemy
+    /// </summary>
+    /// <param name="loot"></param>
+    internal virtual void Death(bool loot)
+    {
+        //anim of Death
         var random = Random.Range(0, 100);
-        if(random<purcentageOfDrop)
+        if (random < purcentageOfDrop)
             Instantiate(ingredientToDrop, transform.position, Quaternion.identity);
         poolManager.OnDeath(index);
         Destroy(gameObject);
