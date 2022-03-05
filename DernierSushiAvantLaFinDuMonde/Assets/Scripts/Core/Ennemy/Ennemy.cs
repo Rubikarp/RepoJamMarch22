@@ -15,7 +15,7 @@ public class Ennemy : MonoBehaviour
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9)
         {
             life--;
             collision.gameObject.GetComponent<Bullet>().Destruction();
@@ -23,6 +23,14 @@ public class Ennemy : MonoBehaviour
             if (life == 0)
                 Death();
         }
+    }
+
+    public virtual void TakeDamage()
+    {
+        life--;
+        //anim of Damage
+        if (life == 0)
+            Death();
     }
     internal virtual void Init(EnnemyPoolManager _poolManager, int _index, Transform _sushiPos)
     {

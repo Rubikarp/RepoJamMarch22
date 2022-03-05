@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("Hit " + coll.gameObject.name);
                 //Bim!
-                coll.gameObject.GetComponent<Hitable>().Hit(MeToColider.normalized, strenght);
+                coll.gameObject.GetComponent<Ennemy>().TakeDamage();
             }
         }
     }

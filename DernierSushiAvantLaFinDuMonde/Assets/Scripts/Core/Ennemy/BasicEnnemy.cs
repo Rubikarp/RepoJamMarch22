@@ -35,8 +35,14 @@ public class BasicEnnemy : Ennemy
         base.OnCollisionEnter2D(collision);
         if(collision.gameObject.layer == 7)
         {
-            //do damage to player
+            collision.gameObject.GetComponent<Hitable>().Hit((collision.transform.position- transform.position).normalized,1.5f);
+            FallBack(0.5f);
         }
+    }
+    public override void TakeDamage()
+    {
+        base.TakeDamage();
+        FallBack(0.5f);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
