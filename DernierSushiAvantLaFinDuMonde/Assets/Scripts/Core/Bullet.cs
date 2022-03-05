@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
             Destruction();
     }
 
-    private void Destruction()
+    public void Destruction()
     {
         //instantiate explosion
         Destroy(gameObject);

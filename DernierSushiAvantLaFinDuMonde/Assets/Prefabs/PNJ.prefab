@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3950809800677904707}
   - component: {fileID: 8907643367348451967}
   - component: {fileID: -6965150245613607798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PNJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,8 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunPos: {x: 0, y: 0}
+  waitingTime: 0
   Bullet: {fileID: 6546211988121936475, guid: 509241480592ad6448f8fc456a6cf50c, type: 3}
-  bulletCooldwon: 3
+  bulletCooldwon: 1
   movingSpeed: 1
   rigidbody2D: {fileID: -6965150245613607798}
 --- !u!50 &-6965150245613607798
@@ -149,4 +150,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
