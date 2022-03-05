@@ -67,5 +67,8 @@ public static class KarpHelper
     {
         return new Vector2(pos.x, pos.z);
     }
-
+    public static Vector3 To3D(this Vector2 pos)
+    {
+        return new Vector3(pos.x, pos.y, 0);
+    }
 }
