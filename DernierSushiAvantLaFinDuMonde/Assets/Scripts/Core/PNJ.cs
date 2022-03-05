@@ -6,52 +6,67 @@ public class PNJ : MonoBehaviour
 {
     private Vector2 sushiPosition;
     public Vector2 GunPos;
-    private float isMoving;
-    private bool isFiring;
-
+    private bool isMoving;
+    private bool isWaiting;
     private PNJManager PnjManager;
     private bool waitForFood;
-    private float waitingTime;
-    private Vector2 firingDirection;
+    [HideInInspector]
+    public float waitingTime;
     public GameObject Bullet;
-
-    public void Init(PNJManager _manager, float _waiting, Vector2 _firingDirection)
+    public float bulletCooldwon;
+    public float movingSpeed;
+    public Rigidbody2D rigidbody2D;
+    public void Init(PNJManager _manager, float _waiting, Vector2 _gunPos)
     {
         PnjManager = _manager;
         waitingTime = _waiting;
-        firingDirection = _firingDirection;
+        GunPos = _gunPos;
+        GetGun();
     }
-    public void Move()
+    public void Move(float direction)
     {
-        //activate movement
-        //desactived firing
+        rigidbody2D.velocity = GunPos.normalized * direction * movingSpeed;
+        isMoving = true;
+        isWaiting = false;
     }
-    public void Moving(Vector2 position)
-    {
-        //moving toward pos
-    }
-    private void Update()
-    {
-        if (isMoving > 1)
-            Moving(sushiPosition);
-        else if (isMoving < -1)
-            Moving(GunPos);
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.layer == 6)
+        {
+            isWaiting = true;
+            collision.gameObject.GetComponent<SushiBarBehavior>().CreatRecepe(this);
+        }
         //chek collision with sushiShop and call it ShowRecep
-        isMoving = 0;
+       else if (collision.gameObject.layer == 10 && isMoving)
+        {
+            PnjManager.Unselect();
+        }
+        rigidbody2D.velocity = Vector2.zero;
+        isMoving = false;
         //Chek collision WIth GUn and call get GUn
     }
 
     private void GetGun()
     {
-        //Lunch a recursive coroutine to Fire
+        StartCoroutine(Fire());
     }
     IEnumerator Fire()
     {
-        //recursive function firing bullets in a direction
-        yield  break;
+        var _bullet =Instantiate(Bullet, transform.position, Quaternion.identity);
+        _bullet.GetComponent<Rigidbody2D>().velocity = GunPos.normalized;
+        yield  return new WaitForSeconds(bulletCooldwon);
+        if (!isMoving && !isWaiting)
+        {
+            StartCoroutine(Fire());
+        }
+    }
+    public void Death()
+    {
+        PnjManager.DeathOfPnj(this);
+        //DeathAnim
+        GetComponent<SpriteRenderer>().color = Color.black;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }
