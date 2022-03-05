@@ -20,6 +20,10 @@ public class EnnemyPoolManager : MonoBehaviour
         {
             StartCoroutine(SpawnEnnemy(0));
         }
+        for (int i = 1; i < ennemies.Capacity; i++)
+        {
+            StartCoroutine(SpawnEnnemy(i));
+        }
     }
     public void OnDeath(int index)
     {
@@ -40,7 +44,7 @@ public class EnnemyPoolManager : MonoBehaviour
         }
         else
             StopCoroutine(SpawnEnnemy(index));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2*(index+1));
         StartCoroutine(SpawnEnnemy(index));
     }
 }
