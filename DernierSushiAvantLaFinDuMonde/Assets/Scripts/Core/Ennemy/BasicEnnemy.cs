@@ -48,8 +48,8 @@ public class BasicEnnemy : Ennemy
         }
     }
 
-    public void FallBack()
+    public void FallBack(float fallBackForce)
     {
-        speed = -initSpeed;
+        speed = -initSpeed*fallBackForce;
     }
 }
