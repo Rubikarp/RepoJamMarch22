@@ -18,6 +18,12 @@ public class BasicEnnemy : Ennemy
         else
             speed = initSpeed;
         transform.Translate((position-(Vector2)transform.position).normalized * speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, sushiPos.position) < 1)
+        {
+            sushiPos.GetComponent<SushiBarLife>().TakeDamage(1);
+            FallBack(2.5f);
+        }
     }
     internal override void Init(EnnemyPoolManager _poolManager, int _index, Transform _sushiPos)
     {
@@ -31,7 +37,6 @@ public class BasicEnnemy : Ennemy
         {
             //do damage to player
         }
-        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
