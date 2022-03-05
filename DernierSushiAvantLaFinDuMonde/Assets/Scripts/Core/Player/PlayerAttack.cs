@@ -21,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float strenght = 5f;
     [SerializeField] float coolDown = 0.2f;
     [SerializeField] bool canAttack = true;
-    [SerializeField] bool CanAttack
+    public bool CanAttack
     {
         get { return canAttack; }
         set

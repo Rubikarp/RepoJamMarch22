@@ -7,10 +7,14 @@ public class Hitable : MonoBehaviour
 {
     [Header("Dependency")]
     [SerializeField] Rigidbody2D body;
+    [SerializeField] Life life;
 
     [Header("Info")]
-    [SerializeField] float stunDur = 0.1f;
     [SerializeField] bool stun = false;
+    [SerializeField] float stunDur = 0.1f;
+    [SerializeField] bool invicibility = false;
+    [SerializeField] float invicibilityDur = 0.1f;
+
     public bool Stun
     {
         get { return stun; }
@@ -18,17 +22,30 @@ public class Hitable : MonoBehaviour
         {
             if (value && !stun)
             {
-                Invoke("CD", stunDur);
+                Invoke("CDStun", stunDur);
             }
             stun = value;
         }
     }
-    public void CD()
+    public void CDStun()
     {
         stun = true;
     }
+    public void CDInvicibility()
+    {
+        invicibility = false;
+    }
+    public void TempInvici(float dur)
+    {
+        invicibility = true;
+        Invoke("CDInvicibility", invicibilityDur);
+    }
     public void Hit(Vector2 dir, float dist)
     {
+        if (invicibility) return;
+
+        life.GetHit();
         body.AddForce(dir * dist * 100 * body.mass, ForceMode2D.Force);
+        TempInvici(0.2f);
     }
 }
