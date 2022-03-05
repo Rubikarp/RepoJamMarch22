@@ -11,8 +11,9 @@ public class Ennemy : MonoBehaviour
     [Range(0,100)]
     public float purcentageOfDrop;
     public GameObject ingredientToDrop;
+    public bool canBeTargeted;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 9)
         {
