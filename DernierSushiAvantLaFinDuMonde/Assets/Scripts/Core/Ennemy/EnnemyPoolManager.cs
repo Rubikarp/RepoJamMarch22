@@ -16,7 +16,7 @@ public class EnnemyPoolManager : MonoBehaviour
         {
             currentNumber.Add(0);
         }
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             StartCoroutine(SpawnEnnemy(0));
         }
@@ -32,15 +32,10 @@ public class EnnemyPoolManager : MonoBehaviour
         if (ennemies[index].maxNumber > currentNumber[index])
         {
             currentNumber[index]++;
-            var x = Random.Range(10, 15);
-            var y = Random.Range(10, 15);
-            var xSigne = Random.Range(0, 2);
-            if (xSigne == 1)
-                x *= -1;
-            var ySigne = Random.Range(0, 2);
-            if (ySigne == 1)
-                y *= -1;
-            var _ennemy = Instantiate(ennemies[index].type, new Vector2(x, y), Quaternion.identity);
+            var x = Random.Range(0, 360);
+            var value =(Mathf.PI / 180) * x;
+            var range = Random.Range(10, 15);
+            var _ennemy = Instantiate(ennemies[index].type, new Vector2(Mathf.Cos(value), Mathf.Sin(value))* range, Quaternion.identity);
             _ennemy.GetComponent<Ennemy>().Init(this, index, sushiPos);
         }
         else

@@ -146,3 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 6546211988121936478}
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+  speed: 5
