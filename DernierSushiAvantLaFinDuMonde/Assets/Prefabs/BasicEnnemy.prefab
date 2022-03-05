@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8364272731186905133}
   m_Layer: 8
   m_Name: BasicEnnemy
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f157612ec84a140963ab62c358f87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sushiPos: {fileID: 0}
   life: 1
   purcentageOfDrop: 60
   ingredientToDrop: {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
