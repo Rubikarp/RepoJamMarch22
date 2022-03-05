@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5461722112329597634}
   - component: {fileID: 5461722112329597633}
-  - component: {fileID: 5461722112329597632}
   - component: {fileID: -8499625587503212156}
   - component: {fileID: 8364272731186905133}
-  - component: {fileID: 5191076380546890623}
+  - component: {fileID: 5202770554808774481}
+  - component: {fileID: -113422055355531298}
   m_Layer: 8
-  m_Name: BasicEnnemy
+  m_Name: Ennemy 2
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2721088447641494797, guid: 04bcaebb27a66e0419332410aaee799c, type: 3}
+  m_Sprite: {fileID: -6460378852292330129, guid: 4effa0cc470182749a6d572fd6b590be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,23 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5461722112329597632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461722112329597639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f157612ec84a140963ab62c358f87f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
-  purcentageOfDrop: 100
-  ingredientToDrop: {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
-  canBeTargeted: 1
-  speed: 1
 --- !u!61 &-8499625587503212156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,10 +126,31 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.007827759, y: 0}
   serializedVersion: 2
-  m_Radius: 2
---- !u!95 &5191076380546890623
+  m_Radius: 4.24671
+--- !u!114 &5202770554808774481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461722112329597639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98136940edece7046885c6d5f088260d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 2
+  purcentageOfDrop: 100
+  ingredientToDrop: {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
+  canBeTargeted: 1
+  giveUpTime: 50
+  speed: 3
+  alerted: 0
+  outOfSight: 0
+  timeOutOfSight: 0
+--- !u!95 &-113422055355531298
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -156,7 +160,7 @@ Animator:
   m_GameObject: {fileID: 5461722112329597639}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b0d43bf29933c04294e812bffe7959f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1f206bfa221189a4da9a7bfebd335125, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

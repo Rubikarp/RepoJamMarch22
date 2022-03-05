@@ -7,9 +7,9 @@ public class FishEnemy : Ennemy
     private Vector2 position;
     public float giveUpTime = 50;
     public float speed;
-    bool alerted;
-    bool outOfSight;
-    float timeOutOfSight;
+    public bool alerted;
+    public bool outOfSight;
+    public float timeOutOfSight;
     Transform target;
     void Update()
     {
@@ -32,6 +32,10 @@ public class FishEnemy : Ennemy
             alerted = true;
             outOfSight = false;
         }
+        else
+        {
+            outOfSight = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -43,7 +47,7 @@ public class FishEnemy : Ennemy
 
     void GiveUp()
     {
-        if (!alerted && outOfSight)
+        if (outOfSight)
         {
             if (timeOutOfSight < giveUpTime)
             {

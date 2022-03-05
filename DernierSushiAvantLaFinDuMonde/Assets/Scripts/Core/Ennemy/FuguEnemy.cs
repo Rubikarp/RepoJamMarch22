@@ -11,19 +11,24 @@ public class FuguEnemy : Ennemy
     bool outOfSight;
     float timeOutOfSight;
     bool inRange;
-    float explosionTime;
-    GameObject explosionPrefab;
+    public float explosionTime;
+    public GameObject explosionPrefab;
+    public float explosionDuration;
     Transform target;
 
-    private void FixedUpdate()
+    private void Update()
     {
-        GiveUp();
+        if (alerted)
+        {
+            transform.Translate(((Vector2)target.position - (Vector2)transform.position).normalized * speed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7)
         {
+            alerted = true;
             StartCoroutine(Explosion());
             target = collision.transform;
             inRange = true;
@@ -31,30 +36,11 @@ public class FuguEnemy : Ennemy
         }
     }
 
-    void GiveUp()
-    {
-        if (!alerted && outOfSight)
-        {
-            if (timeOutOfSight < giveUpTime)
-            {
-                timeOutOfSight++;
-            }
-            else
-            {
-                alerted = false;
-                timeOutOfSight = 0;
-            }
-        }
-        else
-        {
-            timeOutOfSight = 0;
-        }
-    }
 
     IEnumerator Explosion()
     {
         yield return new WaitForSeconds(explosionTime);
-
-
+        Destroy(Instantiate(explosionPrefab, transform.position, Quaternion.identity),explosionDuration);
+        Destroy(gameObject);
     }
 }
