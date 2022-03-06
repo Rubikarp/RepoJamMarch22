@@ -15,6 +15,8 @@ public class Life : MonoBehaviour
             if(lifePoint <= 0)
             {
                 onDie?.Invoke();
+                //transform.position = Vector3.down * 2;
+                lifePoint = 3;
             }
         }
     }
