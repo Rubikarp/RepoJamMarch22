@@ -8,6 +8,7 @@ public class PlayerInventoryDrawer : MonoBehaviour
     [SerializeField] List<GameObject> slots;
     [SerializeField] List<Image> slotsImage;
     [SerializeField] GameObject inventorySlotTemplate;
+    [SerializeField] Sprite empty;
     [NaughtyAttributes.Button]
     void Update()
     {
@@ -31,9 +32,16 @@ public class PlayerInventoryDrawer : MonoBehaviour
             } while (slots.Count > inventory.maxSized);
         }
 
-        for (int i = 0; i < inventory.inventory.Count; i++)
+        for (int i = 0; i < slotsImage.Count; i++)
         {
-            slotsImage[i].sprite = inventory.inventory[i].ingredientSprite;
+            if (i < inventory.inventory.Count)
+            {
+                slotsImage[i].sprite = inventory.inventory[i].ingredientSprite;
+            }
+            else
+            {
+                slotsImage[i].sprite = empty;
+            }
         }
     }
 }
