@@ -8,7 +8,6 @@ public class PlayerInventoryDrawer : MonoBehaviour
     [SerializeField] List<GameObject> slots;
     [SerializeField] List<Image> slotsImage;
     [SerializeField] GameObject inventorySlotTemplate;
-
     [NaughtyAttributes.Button]
     void Update()
     {

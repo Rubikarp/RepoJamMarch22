@@ -16,6 +16,7 @@ public class PNJ : MonoBehaviour
     public float bulletCooldwon;
     public float movingSpeed;
     public Rigidbody2D rigidbody2D;
+    public Animator animator;
     public void Init(PNJManager _manager, float _waiting, Vector2 _gunPos)
     {
         PnjManager = _manager;
@@ -28,6 +29,8 @@ public class PNJ : MonoBehaviour
         rigidbody2D.velocity = GunPos.normalized * direction * movingSpeed;
         isMoving = true;
         isWaiting = false;
+        animator.SetBool("Walk",true);
+        animator.SetBool("Wait", false);
     }
     
 
@@ -36,12 +39,14 @@ public class PNJ : MonoBehaviour
         if(collision.gameObject.layer == 6)
         {
             isWaiting = true;
+            animator.SetBool("Wait", true);
             collision.gameObject.GetComponent<SushiBarBehavior>().CreatRecepe(this);
         }
         //chek collision with sushiShop and call it ShowRecep
        else if (collision.gameObject.layer == 10 && isMoving)
         {
             PnjManager.Unselect();
+            animator.SetBool("Walk", false);
         }
         rigidbody2D.velocity = Vector2.zero;
         isMoving = false;
@@ -65,7 +70,7 @@ public class PNJ : MonoBehaviour
     public void Death()
     {
         PnjManager.DeathOfPnj(this);
-        //DeathAnim
+        animator.SetTrigger("Death");
         GetComponent<SpriteRenderer>().color = Color.black;
         GetComponent<BoxCollider2D>().enabled = false;
     }

@@ -10,7 +10,7 @@ public class SushiBarLife : MonoBehaviour
     private float timer;
     private bool isHealing;
     public Image LifeBar;
-    public GameObject GameOver;
+    public ScoreDisplay GameOver;
     private void Start()
     {
         currentLife = maxLife;
@@ -37,7 +37,7 @@ public class SushiBarLife : MonoBehaviour
         if(currentLife == 0)
         {
             Time.timeScale = 0;
-            GameOver.SetActive(true);
+            GameOver.ShowEnd();
         }
     }
     private void Healing()

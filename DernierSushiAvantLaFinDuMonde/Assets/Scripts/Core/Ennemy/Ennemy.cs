@@ -10,9 +10,9 @@ public class Ennemy : MonoBehaviour
     public float life;
     [Range(0,100)]
     public float purcentageOfDrop;
-    public GameObject ingredientToDrop;
+    public GameObject[] ingredientToDrop;
     public bool cantBeTargeted;
-
+    
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 9)
@@ -57,8 +57,10 @@ public class Ennemy : MonoBehaviour
         var random = Random.Range(0, 100);
         if (random < purcentageOfDrop)
         {
-            Instantiate(ingredientToDrop, transform.position, Quaternion.identity);
+            var r2 = Random.Range(0, ingredientToDrop.Length - 1);
+            Instantiate(ingredientToDrop[r2], transform.position, Quaternion.identity);
         }
+        ScoreSystem.instance.AddScore(100);
         poolManager.OnDeath(index);
         Destroy(gameObject);
     }

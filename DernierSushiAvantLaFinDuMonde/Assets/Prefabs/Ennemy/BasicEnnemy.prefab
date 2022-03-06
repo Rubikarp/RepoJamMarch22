@@ -101,8 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   purcentageOfDrop: 30
-  ingredientToDrop: {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
-  canBeTargeted: 0
+  ingredientToDrop:
+  - {fileID: 2969852063896899923, guid: 716a560e14d9bab499b56681c6599e77, type: 3}
+  - {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
+  cantBeTargeted: 0
   speed: 1
 --- !u!61 &-8499625587503212156
 BoxCollider2D:
