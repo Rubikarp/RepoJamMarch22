@@ -17,12 +17,14 @@ public class PNJ : MonoBehaviour
     public float movingSpeed;
     public Rigidbody2D rigidbody2D;
     public Animator animator;
-    public void Init(PNJManager _manager, float _waiting, Vector2 _gunPos)
+    public Animator canonAnimator;
+    public void Init(PNJManager _manager, float _waiting, GameObject _gunPos)
     {
         PnjManager = _manager;
         waitingTime = _waiting;
-        GunPos = _gunPos;
-        GetGun();
+        GunPos = _gunPos.transform.position;
+        canonAnimator = _gunPos.GetComponentInChildren<Animator>();
+        canonAnimator.speed = 1 / bulletCooldwon;
     }
     public void Move(float direction)
     {
@@ -30,6 +32,7 @@ public class PNJ : MonoBehaviour
         isMoving = true;
         isWaiting = false;
         animator.SetBool("Walk",true);
+        canonAnimator.SetBool("Firing",false);
         animator.SetBool("Wait", false);
     }
     
@@ -46,6 +49,7 @@ public class PNJ : MonoBehaviour
        else if (collision.gameObject.layer == 10 && isMoving)
         {
             PnjManager.Unselect();
+            canonAnimator.SetBool("Firing", false);
             animator.SetBool("Walk", false);
         }
         rigidbody2D.velocity = Vector2.zero;
@@ -53,20 +57,7 @@ public class PNJ : MonoBehaviour
         //Chek collision WIth GUn and call get GUn
     }
 
-    private void GetGun()
-    {
-        StartCoroutine(Fire());
-    }
-    IEnumerator Fire()
-    {
-        var _bullet =Instantiate(Bullet, transform.position, Quaternion.identity);
-        _bullet.GetComponent<Rigidbody2D>().velocity = GunPos.normalized;
-        yield  return new WaitForSeconds(bulletCooldwon);
-        if (!isMoving && !isWaiting)
-        {
-            StartCoroutine(Fire());
-        }
-    }
+    
     public void Death()
     {
         PnjManager.DeathOfPnj(this);
