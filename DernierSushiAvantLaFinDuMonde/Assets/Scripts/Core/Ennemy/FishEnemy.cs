@@ -18,6 +18,8 @@ public class FishEnemy : Ennemy
         {
             transform.Translate(((Vector2)target.position - (Vector2)transform.position).normalized * speed * Time.deltaTime);
         }
+        var Direction = (position - (Vector2)transform.position).normalized;
+        spriteRenderer.flipX = Direction.x > 0 ? true : false;
     }
 
     private void FixedUpdate()

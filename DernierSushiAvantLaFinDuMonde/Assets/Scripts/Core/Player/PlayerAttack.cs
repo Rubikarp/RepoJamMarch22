@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float strenght = 5f;
     [SerializeField] float coolDown = 0.2f;
     [SerializeField] bool canAttack = true;
+    [SerializeField] float attackDelay;
     public UnityEvent onAttack;
     public bool CanAttack
     {
@@ -42,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
         if (context.performed && canAttack)
         {
             CanAttack = false;
-            Attack(mouv.lastDir);
+            StartCoroutine(Attack(mouv.lastDir));
             onAttack?.Invoke();
         }
     }
@@ -52,8 +53,9 @@ public class PlayerAttack : MonoBehaviour
         canAttack = true;
     }
 
-    public void Attack(Vector2 dir)
+    public IEnumerator Attack(Vector2 dir)
     {
+        yield return new WaitForSeconds(attackDelay);
         Vector2 attackDir;
         if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
