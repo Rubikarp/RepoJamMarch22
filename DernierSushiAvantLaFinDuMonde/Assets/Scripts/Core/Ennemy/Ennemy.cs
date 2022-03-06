@@ -21,7 +21,7 @@ public class Ennemy : MonoBehaviour
             collision.gameObject.GetComponent<Bullet>().Destruction();
             //anim of Damage
             if (life == 0)
-                Death();
+                Death(true);
         }
     }
 
@@ -30,7 +30,7 @@ public class Ennemy : MonoBehaviour
         life--;
         //anim of Damage
         if (life == 0)
-            Death();
+            Death(true);
     }
     internal virtual void Init(EnnemyPoolManager _poolManager, int _index, Transform _sushiPos)
     {
@@ -56,7 +56,9 @@ public class Ennemy : MonoBehaviour
         //anim of Death
         var random = Random.Range(0, 100);
         if (random < purcentageOfDrop)
+        {
             Instantiate(ingredientToDrop, transform.position, Quaternion.identity);
+        }
         poolManager.OnDeath(index);
         Destroy(gameObject);
     }

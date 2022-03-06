@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e119402fef5f9429513f79027a00a0, type: 3}
   m_Name: Sushi 2
   m_EditorClassIdentifier: 
-  ingredientSprite: {fileID: 21300008, guid: 358b5d9f23bc9413e87c9948acc67ee1, type: 3}
+  ingredientSprite: {fileID: -970488182351979515, guid: fe42c8b526e77e54ab91d0590272d9e8, type: 3}
   rarety: 1

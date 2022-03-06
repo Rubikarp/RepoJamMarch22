@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  purcentageOfDrop: 100
+  purcentageOfDrop: 30
   ingredientToDrop: {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
   canBeTargeted: 1
   speed: 1
