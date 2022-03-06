@@ -38,6 +38,8 @@ public class SushiBarBehavior : MonoBehaviour
             if (currentRecepe.CheckRecepe(playerList))
             {
                 HideRecepe();
+                waitingPnj.Move(1);
+                waitingPnj = null;
                 ScoreSystem.instance.AddScore(500);
                 return true;
             }

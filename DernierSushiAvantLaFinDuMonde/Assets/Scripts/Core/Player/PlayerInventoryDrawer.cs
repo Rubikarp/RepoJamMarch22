@@ -10,7 +10,7 @@ public class PlayerInventoryDrawer : MonoBehaviour
     [SerializeField] GameObject inventorySlotTemplate;
     [SerializeField] Sprite empty;
     [NaughtyAttributes.Button]
-    void Update()
+    void FixedUpdate()
     {
         if (slots.Count < inventory.maxSized)
         {

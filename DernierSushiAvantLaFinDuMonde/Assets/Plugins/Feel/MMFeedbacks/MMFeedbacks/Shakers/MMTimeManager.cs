@@ -196,7 +196,6 @@ namespace MoreMountains.Feedbacks
         /// <param name="newValue"></param>
         protected virtual void ApplyTimeScale(float newValue)
         {
-            Time.timeScale = newValue;
 
             if (newValue != 0)
             {

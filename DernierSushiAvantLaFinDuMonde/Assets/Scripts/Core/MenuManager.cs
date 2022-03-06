@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,14 +20,18 @@ public class MenuManager : MonoBehaviour
         pause.SetActive(false);
         Time.timeScale = 1;
     }
-    public void Pause()
+    public void Pause(InputAction.CallbackContext context)
     {
-        if (!pause.activeSelf)
+        if (context.performed)
         {
-            pause.SetActive(true);
-            Time.timeScale = 0;
+            if (!pause.activeSelf)
+            {
+                pause.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+                Continue();
         }
-        else
-            Continue();
+        
     }
 }

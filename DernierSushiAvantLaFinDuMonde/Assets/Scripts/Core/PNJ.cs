@@ -44,16 +44,19 @@ public class PNJ : MonoBehaviour
             isWaiting = true;
             animator.SetBool("Wait", true);
             collision.gameObject.GetComponent<SushiBarBehavior>().CreatRecepe(this);
+            rigidbody2D.velocity = Vector2.zero;
+            isMoving = false;
         }
         //chek collision with sushiShop and call it ShowRecep
        else if (collision.gameObject.layer == 10 && isMoving)
         {
             PnjManager.Unselect();
-            canonAnimator.SetBool("Firing", false);
+            canonAnimator.SetBool("Firing", true);
             animator.SetBool("Walk", false);
+            rigidbody2D.velocity = Vector2.zero;
+            isMoving = false;
         }
-        rigidbody2D.velocity = Vector2.zero;
-        isMoving = false;
+        
         //Chek collision WIth GUn and call get GUn
     }
 

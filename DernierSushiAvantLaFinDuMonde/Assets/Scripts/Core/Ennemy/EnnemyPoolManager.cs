@@ -38,7 +38,7 @@ public class EnnemyPoolManager : MonoBehaviour
             currentNumber[index]++;
             var x = Random.Range(0, 360);
             var value =(Mathf.PI / 180) * x;
-            var range = Random.Range(10, 15);
+            var range = Random.Range(10, 18);
             var _ennemy = Instantiate(ennemies[index].type, new Vector2(Mathf.Cos(value), Mathf.Sin(value))* range, Quaternion.identity, transform);
             _ennemy.GetComponent<Ennemy>().Init(this, index, sushiPos);
         }

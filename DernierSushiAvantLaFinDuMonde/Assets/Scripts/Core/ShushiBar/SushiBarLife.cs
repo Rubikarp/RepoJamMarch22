@@ -16,7 +16,7 @@ public class SushiBarLife : MonoBehaviour
         currentLife = maxLife;
         
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (timer < timeBeforRegen)
         {
@@ -31,7 +31,8 @@ public class SushiBarLife : MonoBehaviour
     {
         isHealing = false;
         currentLife-= damage;
-        LifeBar.gameObject.SetActive(true);
+        
+        LifeBar.transform.parent.gameObject.SetActive(true);
         LifeBar.fillAmount = currentLife / (float)maxLife;
         timer = 0;
         if(currentLife == 0)
@@ -59,7 +60,7 @@ public class SushiBarLife : MonoBehaviour
         {
             isHealing = false;
             currentLife = maxLife;
-            LifeBar.gameObject.SetActive(false);
+            LifeBar.transform.parent.gameObject.SetActive(false);
         }
     }
 }

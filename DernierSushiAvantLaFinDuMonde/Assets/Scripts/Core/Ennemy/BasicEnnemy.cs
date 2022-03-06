@@ -11,7 +11,7 @@ public class BasicEnnemy : Ennemy
     {
         initSpeed = speed;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (initSpeed > speed)
             speed += Time.deltaTime;

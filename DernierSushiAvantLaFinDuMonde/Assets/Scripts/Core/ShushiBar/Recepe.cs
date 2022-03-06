@@ -24,7 +24,7 @@ public class Recepe
             if (ingredients.Contains(ingredient)) tempList.Remove(ingredient);
         }
         if (tempList.Count == 0)
-            return false;
-        return true;
+            return true;
+        return false;
     }
 }

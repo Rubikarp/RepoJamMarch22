@@ -18,7 +18,7 @@ public class PlayerInventory : MonoBehaviour
         if(inventory.Count >= maxSized) 
             return;
 
-        Collider2D[] collHit = Physics2D.OverlapCircleAll(transform.position, 3f);
+        Collider2D[] collHit = Physics2D.OverlapCircleAll(transform.position, 1f);
         foreach (Collider2D coll in collHit)
         {
             if (coll.tag != foodTag)
