@@ -17,8 +17,9 @@ public class BasicEnnemy : Ennemy
             speed += Time.deltaTime;
         else
             speed = initSpeed;
-        transform.Translate((position-(Vector2)transform.position).normalized * speed * Time.deltaTime);
-
+        var Direction = (position - (Vector2)transform.position).normalized;
+        transform.Translate(Direction * speed * Time.deltaTime);
+        spriteRenderer.flipX = Direction.x > 0 ?  true :  false;
         if (Vector2.Distance(transform.position, sushiPos.position) < 1)
         {
             sushiPos.GetComponent<SushiBarLife>().TakeDamage(1);

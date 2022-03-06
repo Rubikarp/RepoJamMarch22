@@ -12,7 +12,7 @@ public class Ennemy : MonoBehaviour
     public float purcentageOfDrop;
     public GameObject[] ingredientToDrop;
     public bool cantBeTargeted;
-    
+    public SpriteRenderer spriteRenderer;
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 9)
