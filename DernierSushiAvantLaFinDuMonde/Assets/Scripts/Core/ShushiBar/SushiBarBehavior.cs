@@ -28,13 +28,18 @@ public class SushiBarBehavior : MonoBehaviour
         currentWaitingTIme = 0;
         StartCoroutine(WaitForDeath(waitingPnj.waitingTime));
     }
-    public void ServeRecepe()
+    public bool  ServeRecepe(List<Ingredient> playerList)
     {
         if (numberOfRecepeServed / 2 < maxIngredientNumber)
             numberOfRecepeServed++;
-        //when player trigger shop and press input
-        //test if the ingredient form the good recepe
-        //if it does send a information to pnj and call HideRecepe
+        if (currentRecepe != null)
+            if (currentRecepe.CheckRecepe(playerList))
+            {
+                HideRecepe();
+                return true;
+            }
+
+        return false;
     }
     private void Update()
     {

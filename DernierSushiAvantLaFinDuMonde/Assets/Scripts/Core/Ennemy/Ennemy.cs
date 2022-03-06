@@ -21,7 +21,7 @@ public class Ennemy : MonoBehaviour
             collision.gameObject.GetComponent<Bullet>().Destruction();
             //anim of Damage
             if (life == 0)
-                Death(true);
+                Death();
         }
     }
 
