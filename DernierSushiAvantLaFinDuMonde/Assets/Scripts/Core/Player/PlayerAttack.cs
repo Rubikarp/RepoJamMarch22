@@ -23,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] float coolDown = 0.2f;
     [SerializeField] bool canAttack = true;
     [SerializeField] float attackDelay;
+    [SerializeField] float cd;
     public UnityEvent onAttack;
     public bool CanAttack
     {
@@ -31,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if(!value && canAttack)
             {
-                Invoke("CD", 0.2f);
+                Invoke("CD", cd);
             }
             canAttack = value;
         }
