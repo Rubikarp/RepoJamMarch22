@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5202770554808774481}
   - component: {fileID: -113422055355531298}
   m_Layer: 8
-  m_Name: Ennemy 2
+  m_Name: Tuna
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
-  purcentageOfDrop: 60
+  purcentageOfDrop: 100
   ingredientToDrop:
   - {fileID: 2969852063896899923, guid: 716a560e14d9bab499b56681c6599e77, type: 3}
   cantBeTargeted: 1

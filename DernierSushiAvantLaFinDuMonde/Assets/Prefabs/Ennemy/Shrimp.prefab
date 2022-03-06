@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -8499625587503212156}
   - component: {fileID: 8364272731186905133}
   - component: {fileID: 6585479610530699269}
-  - component: {fileID: 8744171548745610454}
+  - component: {fileID: -1113087359455740371}
   m_Layer: 8
-  m_Name: Ennemy 3
+  m_Name: Shrimp
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3188361201227668353, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
+  m_Sprite: {fileID: 6148860877664279323, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.11958563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1.78125}
+    oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.3454697}
   m_EdgeRadius: 0
 --- !u!58 &8364272731186905133
 CircleCollider2D:
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
 --- !u!95 &6585479610530699269
 Animator:
   serializedVersion: 3
@@ -148,7 +148,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8744171548745610454
+--- !u!114 &-1113087359455740371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,16 +157,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5461722112329597639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c27046ec153043409412dd82ebff0e8, type: 3}
+  m_Script: {fileID: 11500000, guid: b5f157612ec84a140963ab62c358f87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  purcentageOfDrop: 90
+  purcentageOfDrop: 30
   ingredientToDrop:
   - {fileID: 2969852063896899923, guid: e937e4a34d64fdc419a9f6e711a5be8f, type: 3}
-  cantBeTargeted: 1
-  giveUpTime: 500
-  speed: 2
-  explosionTime: 2
-  explosionPrefab: {fileID: 7675476784149147528, guid: ecab5b36bc463334db5046b649d5fef0, type: 3}
-  explosionDuration: 1
+  cantBeTargeted: 0
+  spriteRenderer: {fileID: 5461722112329597633}
+  speed: 1
