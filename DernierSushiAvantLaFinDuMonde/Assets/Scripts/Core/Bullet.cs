@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 public class Bullet : MonoBehaviour
 {
@@ -6,22 +7,29 @@ public class Bullet : MonoBehaviour
     public LayerMask mask;
     private Transform target;
     public float speed;
-    // Update is called once per frame
+
+    public float lifeTime;
     void Update()
     {
-        if (!sprite.isVisible)
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0)
             Destruction();
         if(!target)
         {
-           var collider = Physics2D.OverlapCircle(transform.position, 2f, mask);
-            if (collider)
+           var collider = Physics2D.OverlapCircleAll(transform.position, 10f, mask);
+            if (collider.Length>0)
             {
-                if (!collider.GetComponent<Ennemy>().canBeTargeted)
+                for (int i = 0; i < collider.Length; i++)
                 {
-                    target = collider.transform;
-                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    collider.GetComponent<Ennemy>().canBeTargeted = true;
+                    if (!collider[i].GetComponent<Ennemy>().cantBeTargeted)
+                    {
+                        target = collider[i].transform;
+                        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                        collider[i].GetComponent<Ennemy>().cantBeTargeted = true;
+                        return;
+                    }
                 }
+                
             }
         }
         else
@@ -32,6 +40,8 @@ public class Bullet : MonoBehaviour
 
     public void Destruction()
     {
+        if (target)
+            target.GetComponent<Ennemy>().cantBeTargeted = false;
         //instantiate explosion
         Destroy(gameObject);
     }

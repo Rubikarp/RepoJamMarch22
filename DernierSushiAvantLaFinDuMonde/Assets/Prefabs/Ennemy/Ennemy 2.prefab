@@ -144,7 +144,7 @@ MonoBehaviour:
   life: 2
   purcentageOfDrop: 60
   ingredientToDrop: {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
-  canBeTargeted: 1
+  canBeTargeted: 0
   giveUpTime: 50
   speed: 3
   alerted: 0
