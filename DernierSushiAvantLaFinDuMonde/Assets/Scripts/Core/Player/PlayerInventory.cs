@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
     private SushiBarBehavior sushiBar;
     [NaughtyAttributes.Tag]
     [SerializeField] string foodTag;
+    public UnityEvent onLoot;
     public void RecupItem()
     {
         if (sushiBar)
@@ -23,7 +25,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (coll.tag != foodTag)
             { continue; }
-
+            onLoot?.Invoke();
             inventory.Add(coll.gameObject.GetComponent<FoodItem>().ingredient);
             Destroy(coll.gameObject);
             return;
