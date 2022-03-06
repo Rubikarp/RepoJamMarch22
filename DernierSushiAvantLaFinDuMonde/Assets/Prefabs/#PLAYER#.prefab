@@ -1243,6 +1243,7 @@ MonoBehaviour:
   coolDown: 0.2
   canAttack: 1
   attackDelay: 0.2
+  cd: 0.6
   onAttack:
     m_PersistentCalls:
       m_Calls:
