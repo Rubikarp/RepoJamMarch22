@@ -11,6 +11,7 @@ public class SushiBarBehavior : MonoBehaviour
     public List<Ingredient> ingredients;
     public List<Image> recepeUI;
     public Image fillAmount;
+    public GameObject imageBackgroundLife;
     private PNJ waitingPnj;
     private float currentWaitingTIme;
     public Image orderImage;
@@ -18,6 +19,7 @@ public class SushiBarBehavior : MonoBehaviour
     {
         List<Ingredient> myIngredient = new List<Ingredient>();
         orderImage.enabled = true;
+        imageBackgroundLife.SetActive(true);
         for (int i = 0; i < numberOfRecepeServed/2 +3; i++)
         {
             myIngredient.Add(ingredients[Random.Range(0, ingredients.Count)]);
@@ -56,6 +58,7 @@ public class SushiBarBehavior : MonoBehaviour
     }
     public void HideRecepe()
     {
+        imageBackgroundLife.SetActive(false);
         orderImage.enabled = false;
         currentRecepe = null;
         foreach (var ui in recepeUI)

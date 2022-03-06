@@ -9,10 +9,12 @@ public class MenuManager : MonoBehaviour
     public GameObject pause;
    public void ReloadScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void LoadMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void Continue()
