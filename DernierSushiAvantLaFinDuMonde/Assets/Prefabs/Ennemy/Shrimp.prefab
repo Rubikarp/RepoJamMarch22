@@ -166,4 +166,6 @@ MonoBehaviour:
   - {fileID: 2969852063896899923, guid: e937e4a34d64fdc419a9f6e711a5be8f, type: 3}
   cantBeTargeted: 0
   spriteRenderer: {fileID: 5461722112329597633}
+  deathDelay: 0.25
+  animator: {fileID: 6585479610530699269}
   speed: 1
