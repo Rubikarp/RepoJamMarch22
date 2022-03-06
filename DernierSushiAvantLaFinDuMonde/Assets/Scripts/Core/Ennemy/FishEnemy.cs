@@ -11,6 +11,7 @@ public class FishEnemy : Ennemy
     public bool outOfSight;
     public float timeOutOfSight;
     Transform target;
+    float initSpeed;
     void Update()
     {
         if (alerted)
@@ -63,5 +64,20 @@ public class FishEnemy : Ennemy
         {
             timeOutOfSight = 0;
         }
+    }
+
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+        if (collision.gameObject.layer == 7)
+        {
+            collision.gameObject.GetComponent<Hitable>().Hit((collision.transform.position - transform.position).normalized, 1.5f);
+            FallBack(0.5f);
+        }
+    }
+
+    public void FallBack(float fallBackForce)
+    {
+        speed = -initSpeed * fallBackForce;
     }
 }
