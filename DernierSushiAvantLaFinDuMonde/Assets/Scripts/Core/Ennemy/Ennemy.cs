@@ -13,6 +13,8 @@ public class Ennemy : MonoBehaviour
     public GameObject[] ingredientToDrop;
     public bool cantBeTargeted;
     public SpriteRenderer spriteRenderer;
+    public float deathDelay;
+    public Animator animator;
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 9)
@@ -28,9 +30,11 @@ public class Ennemy : MonoBehaviour
     public virtual void TakeDamage()
     {
         life--;
+        animator.SetTrigger("Hit");
         //anim of Damage
         if (life == 0)
             Death(true);
+
     }
     internal virtual void Init(EnnemyPoolManager _poolManager, int _index, Transform _sushiPos)
     {
@@ -62,6 +66,6 @@ public class Ennemy : MonoBehaviour
         }
         ScoreSystem.instance.AddScore(100);
         poolManager.OnDeath(index);
-        Destroy(gameObject);
+        Destroy(gameObject, deathDelay);
     }
 }
