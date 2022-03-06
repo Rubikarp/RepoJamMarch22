@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.Events;
 using UnityEngine;
 using System;
 
@@ -31,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
             canDash = value;
         }
     }
+    [SerializeField] ParticleSystem particule;
+    public UnityEvent onDash;
 
     [Header("Parameter")]
     [SerializeField] float speed = 10f;
@@ -61,8 +64,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        particule.Stop();
+
+    }
     public IEnumerator Dashing(Vector2 dir, float dur)
     {
+        particule.Play();
+        onDash?.Invoke();
         do
         {
             dur -= Time.deltaTime;
@@ -70,6 +80,8 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         while (dur > 0);
+        yield return new WaitForSecondsRealtime(0.3f);
+        particule.Stop();
 
     }
 
