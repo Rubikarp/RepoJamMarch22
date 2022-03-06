@@ -15,14 +15,15 @@ public class SushiBarBehavior : MonoBehaviour
     private PNJ waitingPnj;
     private float currentWaitingTIme;
     public Image orderImage;
+    public Animator animator;
     public void CreatRecepe(PNJ pnj)
     {
         List<Ingredient> myIngredient = new List<Ingredient>();
         orderImage.enabled = true;
         imageBackgroundLife.SetActive(true);
-        for (int i = 0; i < numberOfRecepeServed/2 +3; i++)
+        for (int i = 0; i < numberOfRecepeServed+3; i++)
         {
-            myIngredient.Add(ingredients[Random.Range(0, ingredients.Count)]);
+            myIngredient.Add(ingredients.Random());
             recepeUI[i].gameObject.SetActive(true);
             recepeUI[i].sprite = myIngredient[myIngredient.Count - 1].ingredientSprite;
         }
@@ -34,7 +35,7 @@ public class SushiBarBehavior : MonoBehaviour
     }
     public bool  ServeRecepe(List<Ingredient> playerList)
     {
-        if (numberOfRecepeServed / 2 < maxIngredientNumber)
+        if (numberOfRecepeServed <2)
             numberOfRecepeServed++;
         if (currentRecepe != null)
             if (currentRecepe.CheckRecepe(playerList))
@@ -43,6 +44,7 @@ public class SushiBarBehavior : MonoBehaviour
                 waitingPnj.Move(1);
                 waitingPnj = null;
                 ScoreSystem.instance.AddScore(500);
+                animator.SetTrigger("Completed");
                 return true;
             }
 

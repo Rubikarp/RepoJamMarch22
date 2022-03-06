@@ -3915,7 +3915,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1543446058}
   - component: {fileID: 1543446057}
-  - component: {fileID: 1543446059}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -3985,47 +3984,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
-  m_Children: []
+  m_Children:
+  - {fileID: 1846721913}
   m_Father: {fileID: 1907164774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1543446059
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543446056}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.070533276, y: 12.202768}
-  - {x: -7.576481, y: 11.639331}
-  - {x: -14.295834, y: 9.4479}
-  - {x: -20.207253, y: 5.1575913}
-  - {x: -21.906572, y: -0.04614237}
-  - {x: -20.001173, y: -5.502646}
-  - {x: -14.565611, y: -9.193721}
-  - {x: -7.367493, y: -11.584729}
-  - {x: 0.031491876, y: -12.202767}
-  - {x: 6.7518167, y: -11.894077}
-  - {x: 14.317515, y: -9.361887}
-  - {x: 20.013964, y: -5.6323304}
-  - {x: 22.01898, y: 0.00055742264}
-  - {x: 20.361433, y: 5.2938986}
-  - {x: 15.179948, y: 8.9905815}
-  - {x: 8.3239975, y: 11.559072}
-  - {x: 0.06709099, y: 12.294518}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1547513300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,6 +4197,7 @@ GameObject:
   - component: {fileID: 1722860293}
   - component: {fileID: 1722860294}
   - component: {fileID: 1722860295}
+  - component: {fileID: 1722860296}
   m_Layer: 6
   m_Name: SushiShop
   m_TagString: Untagged
@@ -4406,6 +4370,7 @@ MonoBehaviour:
   fillAmount: {fileID: 1379791640}
   imageBackgroundLife: {fileID: 190538419}
   orderImage: {fileID: 1629211914}
+  animator: {fileID: 1722860296}
 --- !u!114 &1722860295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,6 +4387,93 @@ MonoBehaviour:
   timeBeforRegen: 2
   LifeBar: {fileID: 16094170}
   GameOver: {fileID: 618296289}
+--- !u!95 &1722860296
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722860288}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24bc3507fdd2f154480797ffd682342a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1846721912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846721913}
+  - component: {fileID: 1846721914}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1846721913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846721912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1543446058}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1846721914
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846721912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.070533276, y: 12.202768}
+  - {x: -7.576481, y: 11.639331}
+  - {x: -14.295834, y: 9.4479}
+  - {x: -20.207253, y: 5.1575913}
+  - {x: -21.906572, y: -0.04614237}
+  - {x: -20.001173, y: -5.502646}
+  - {x: -14.565611, y: -9.193721}
+  - {x: -7.367493, y: -11.584729}
+  - {x: 0.031491876, y: -12.202767}
+  - {x: 6.7518167, y: -11.894077}
+  - {x: 14.317515, y: -9.361887}
+  - {x: 20.013964, y: -5.6323304}
+  - {x: 22.01898, y: 0.00055742264}
+  - {x: 20.361433, y: 5.2938986}
+  - {x: 15.179948, y: 8.9905815}
+  - {x: 8.3239975, y: 11.559072}
+  - {x: 0.06709099, y: 12.294518}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1866340947
 GameObject:
   m_ObjectHideFlags: 0

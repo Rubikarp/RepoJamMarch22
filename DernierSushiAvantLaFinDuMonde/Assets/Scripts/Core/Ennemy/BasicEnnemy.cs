@@ -36,7 +36,7 @@ public class BasicEnnemy : Ennemy
         base.OnCollisionEnter2D(collision);
         if(collision.gameObject.layer == 7)
         {
-            collision.gameObject.GetComponent<Hitable>().Hit((collision.transform.position- transform.position).normalized,1.5f);
+            collision.gameObject.GetComponent<Hitable>().Hit((collision.transform.position- transform.position).normalized,20f);
             FallBack(0.5f);
         }
     }

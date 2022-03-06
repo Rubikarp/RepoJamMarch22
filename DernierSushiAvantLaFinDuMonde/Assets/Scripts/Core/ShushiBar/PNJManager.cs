@@ -10,6 +10,7 @@ public class PNJManager : MonoBehaviour
     private List<PNJ> pnjs = new List<PNJ>();
     public List<Transform> spawnPoints;
     private PNJ hungryPnj;
+    public EnnemyPoolManager manager;
     private void Start()
     {
         for (int i = 0; i < spawnPoints.Count; i++)
@@ -37,6 +38,8 @@ public class PNJManager : MonoBehaviour
     {
         pnjs.Remove(pnj);
         hungryPnj = null;
+        if (pnjs.Count == 0)
+            manager.EndOFtTheWorld();
         StartCoroutine(WaitToSelectAnother());
     }
     private IEnumerator WaitToSelectAnother()

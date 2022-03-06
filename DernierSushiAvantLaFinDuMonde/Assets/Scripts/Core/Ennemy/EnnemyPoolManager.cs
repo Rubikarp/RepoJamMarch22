@@ -36,16 +36,32 @@ public class EnnemyPoolManager : MonoBehaviour
         if (ennemies[index].maxNumber > currentNumber[index])
         {
             currentNumber[index]++;
-            var x = Random.Range(0, 360);
-            var value =(Mathf.PI / 180) * x;
-            var range = Random.Range(10, 18);
-            var _ennemy = Instantiate(ennemies[index].type, new Vector2(Mathf.Cos(value), Mathf.Sin(value))* range, Quaternion.identity, transform);
+            var angle = Random.Range(0, 2*Mathf.PI);
+            var value = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized;
+            value.x = value.x * 1.8f;
+            var range = Random.Range(9, 12);
+            var _ennemy = Instantiate(ennemies[index].type, value * range, Quaternion.identity, transform);
             _ennemy.GetComponent<Ennemy>().Init(this, index, sushiPos);
         }
         else
             StopCoroutine(SpawnEnnemy(index));
-        yield return new WaitForSeconds(2*(index+1));
+        yield return new WaitForSeconds(1.5f*(index+1));
         StartCoroutine(SpawnEnnemy(index));
+    }
+    public void EndOFtTheWorld()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            ennemies[i].maxNumber *= 15;
+        }
+        for (int i = 0; i < 15; i++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                StartCoroutine(SpawnEnnemy(x));
+            }
+        }
+        
     }
 }
 [System.Serializable]

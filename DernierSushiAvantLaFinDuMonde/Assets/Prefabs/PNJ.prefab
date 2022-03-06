@@ -132,6 +132,8 @@ MonoBehaviour:
   movingSpeed: 1
   rigidbody2D: {fileID: -6965150245613607798}
   animator: {fileID: 8604920490967995458}
+  canonAnimator: {fileID: 0}
+  renderer: {fileID: 3950809800677904706}
 --- !u!50 &-6965150245613607798
 Rigidbody2D:
   serializedVersion: 4

@@ -18,6 +18,7 @@ public class PNJ : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public Animator animator;
     public Animator canonAnimator;
+    public SpriteRenderer renderer;
     public void Init(PNJManager _manager, float _waiting, GameObject _gunPos)
     {
         PnjManager = _manager;
@@ -29,6 +30,10 @@ public class PNJ : MonoBehaviour
     public void Move(float direction)
     {
         rigidbody2D.velocity = GunPos.normalized * direction * movingSpeed;
+        if (GunPos.x < 0)
+            renderer.flipX = false;
+        else
+            renderer.flipX = true;
         isMoving = true;
         isWaiting = false;
         animator.SetBool("Walk",true);
