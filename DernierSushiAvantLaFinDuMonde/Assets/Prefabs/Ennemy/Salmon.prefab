@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5461722112329597634}
   - component: {fileID: 5461722112329597633}
-  - component: {fileID: 5461722112329597632}
   - component: {fileID: -8499625587503212156}
   - component: {fileID: 8364272731186905133}
   - component: {fileID: 5191076380546890623}
+  - component: {fileID: 1815992626397688623}
   m_Layer: 8
-  m_Name: BasicEnnemy
+  m_Name: Salmon
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,25 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5461722112329597632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5461722112329597639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f157612ec84a140963ab62c358f87f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
-  purcentageOfDrop: 30
-  ingredientToDrop:
-  - {fileID: 2969852063896899923, guid: 716a560e14d9bab499b56681c6599e77, type: 3}
-  - {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
-  cantBeTargeted: 0
-  speed: 1
 --- !u!61 &-8499625587503212156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +148,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1815992626397688623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461722112329597639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98136940edece7046885c6d5f088260d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 2
+  purcentageOfDrop: 100
+  ingredientToDrop:
+  - {fileID: 2969852063896899923, guid: 37744102aa284d246a40392de80ed174, type: 3}
+  cantBeTargeted: 1
+  spriteRenderer: {fileID: 5461722112329597633}
+  giveUpTime: 50
+  speed: 3
+  alerted: 0
+  outOfSight: 0
+  timeOutOfSight: 0

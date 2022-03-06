@@ -11,12 +11,15 @@ public class FishEnemy : Ennemy
     public bool outOfSight;
     public float timeOutOfSight;
     Transform target;
+    float initSpeed;
     void Update()
     {
         if (alerted)
         {
             transform.Translate(((Vector2)target.position - (Vector2)transform.position).normalized * speed * Time.deltaTime);
         }
+        var Direction = (position - (Vector2)transform.position).normalized;
+        spriteRenderer.flipX = Direction.x > 0 ? true : false;
     }
 
     private void FixedUpdate()
@@ -63,5 +66,20 @@ public class FishEnemy : Ennemy
         {
             timeOutOfSight = 0;
         }
+    }
+
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+        if (collision.gameObject.layer == 7)
+        {
+            collision.gameObject.GetComponent<Hitable>().Hit((collision.transform.position - transform.position).normalized, 1.5f);
+            FallBack(0.5f);
+        }
+    }
+
+    public void FallBack(float fallBackForce)
+    {
+        speed = -initSpeed * fallBackForce;
     }
 }

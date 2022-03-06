@@ -418,7 +418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -96}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940596311
@@ -441,10 +441,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SushiMania
+  m_text: Un dernier sushi avant la fin du monde
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aca51e7f884d0944593d35bf8993265b, type: 2}
-  m_sharedMaterial: {fileID: 6114608297095017290, guid: aca51e7f884d0944593d35bf8993265b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0d45c7f3b7eb3804caf6fb0cf4f38e54, type: 2}
+  m_sharedMaterial: {fileID: -4466919970656767352, guid: 0d45c7f3b7eb3804caf6fb0cf4f38e54, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 164.7
+  m_fontSize: 78.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

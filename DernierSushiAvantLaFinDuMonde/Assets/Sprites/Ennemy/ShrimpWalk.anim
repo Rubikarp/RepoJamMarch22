@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fuggu_Explosion
+  m_Name: ShrimpWalk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,21 +20,21 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3188361201227668353, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - time: 0.06666667
-      value: {fileID: -4352766708476051844, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
+      value: {fileID: 8323522702909433460, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
     - time: 0.15
-      value: {fileID: 2617412590674800693, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - time: 0.21666667
-      value: {fileID: 740257164367442116, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
+      value: {fileID: 5962862145946081619, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
     - time: 0.28333333
-      value: {fileID: 5989284555902189588, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - time: 0.35
-      value: {fileID: -5573438712852683180, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
+      value: {fileID: 6148860877664279323, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
     - time: 0.43333334
-      value: {fileID: 5113796053918731718, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - time: 0.5
-      value: {fileID: -4302952813731997861, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
+      value: {fileID: -882882423675224383, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - time: 0.56666666
+      value: {fileID: 5569701381523034429, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - time: 0.71666664
+      value: {fileID: -8254641067492435235, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - time: 0.85
+      value: {fileID: 3488767574346005592, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - time: 1
+      value: {fileID: -3146323762029768586, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,20 +54,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 3188361201227668353, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: -4352766708476051844, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: 2617412590674800693, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: 740257164367442116, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: 5989284555902189588, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: -5573438712852683180, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: 5113796053918731718, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
-    - {fileID: -4302952813731997861, guid: ddfb337f7168c054b8e7186adbd811e1, type: 3}
+    - {fileID: 8323522702909433460, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: 5962862145946081619, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: 6148860877664279323, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: -882882423675224383, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: 5569701381523034429, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: -8254641067492435235, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: 3488767574346005592, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
+    - {fileID: -3146323762029768586, guid: c7b1829bd49107a489ce31af37d8d894, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 1.0166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
